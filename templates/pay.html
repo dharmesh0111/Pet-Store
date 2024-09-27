@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{%block 'main' %}
+<div class="container-fluid">
+<h1 class="bg-info text-center text-white  ">Delivery Address</h1>
+<form action="">
+<table class="table container" border="2px solid black ">
+    <tbody>
+      <tr>
+        
+        <th scope="row">Country/Region</th>
+        <td><div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown button
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">India</a></li>
+              <li><a class="dropdown-item" href="#">Usa</a></li>
+              <li><a class="dropdown-item" href="#">Canada</a></li>
+              <li><a class="dropdown-item" href="#">United Kingdom</a></li>
+              <li><a class="dropdown-item" href="#">Japan</a></li>
+
+
+            </ul>
+          </div></td>
+      </tr>
+      <tr>
+      <th scope="row">Full name (Fist and last name)</th>   
+        <td><input type="text"></td>
+    </tr>
+ 
+      <tr>
+        <th scope="row">Mobile number</th>
+        <td><input type="text"></td>
+      </tr>
+
+      <tr>
+        <th scope="row">Pincode</th>
+        <td><input type="text" placeholder="6 digit [0-9] PIN code"></td>
+      </tr>
+
+      <tr>
+        <th scope="row">Flat, House no., Building, Company, Apartment</th>
+        <td><input type="text"></td>
+      </tr>
+
+      <tr>
+        <th scope="row">Area, Street, Sector, Village</th>
+        <td><input type="text"></td>
+      </tr>
+
+      <tr>
+        <th scope="row">Landmark</th>
+        <td><input type="text" placeholder="E.g. near apollo hospital"></td>
+      </tr>
+
+      <tr>
+        <th scope="row">Town/City</th>
+        <td><input type=""></td>
+      </tr>
+
+      <tr>
+        <th scope="row">State</th>
+        <td><div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown button
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </div></td>
+      </tr>
+    </tbody>
+  </table>
+</form>
+
+
+
+
+<button class="btn btn-warning" style="width: 100%;" id="rzp-button1">Payment </button>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+var options = {
+    "key": "rzp_test_tIqAd7OXqu2xWS", // Enter the Key ID generated from the Dashboard
+    "amount": "{{ data.amount }}", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+    "currency": "INR",
+    "name": "Acme Corp",
+    "description": "Test Transaction",
+    "image": "https://example.com/your_logo",
+    "order_id": "{{ data.id }}", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+    "handler": function (response){
+        // alert(response.razorpay_payment_id);
+        // alert(response.razorpay_order_id);
+        // alert(response.razorpay_signature)
+        window.location.href = 'http://127.0.0.1:8000/confirmpayment'
+    },
+    "prefill": {
+        "name": "Gaurav Kumar",
+        "email": "gaurav.kumar@example.com",
+        "contact": "9000090000"
+    },
+    "notes": {
+        "address": "Razorpay Corporate Office"
+    },
+    "theme": {
+        "color": "#3399cc"
+    }
+};
+var rzp1 = new Razorpay(options);
+rzp1.on('payment.failed', function (response){
+        alert(response.error.code);
+        alert(response.error.description);
+        alert(response.error.source);
+        alert(response.error.step);
+        alert(response.error.reason);
+        alert(response.error.metadata.order_id);
+        alert(response.error.metadata.payment_id);
+});
+document.getElementById('rzp-button1').onclick = function(e){
+    rzp1.open();
+    e.preventDefault();
+}
+</script>
+</div>
+
+{%endblock 'main' %}
+

@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{%block 'main' %}
+
+<main class="col-md-9">
+    <div class="row">
+      <div
+        class="col-6 mr-2"
+        style="border: 1px solid black; border-radius: 5%; height: 430px"
+      >
+        <img
+          class="mt-1 p-l-5 text-center"
+          src="{{ pet.petimage.url }}"
+          alt=""
+          height="400px"
+          width="400px"
+        />
+      </div>
+      <div class="col-6">
+        <!-- breed : {{pet.breed}} -->
+        <hr />
+        <p style="margin-top: 50px; font-size: 30px">
+          Citizen Men's Stainless Steel Nb6031-56E Series 8 Mechanical 880
+          Automatic Mechanical WristAnalog Watch , Bracelet Type, Band
+          Color-Silver, Dial Color-Black
+        </p>
+        <strong>₹2,87,713 <u>20% off</u> </strong><br />
+        <a href="/addtocart/{{pet.id}}" class="btn btn-warning mt-3">Add to cart</a>
+
+        <a href="/" class="btn btn-warning mt-3">Go back</a>
+        <hr />
+        <table class="m-5">
+          <tr>
+            <th>Product Detail</th>
+          </tr>
+          <tr>
+            <td>Case diameter:</td>
+            <td class="p-2">41 Millimetres</td>
+          </tr>
+          <tr>
+            <td>Band colour:</td>
+            <td class="p-2">Silver</td>
+          </tr>
+          <tr>
+            <td>Band material type:</td>
+            <td class="p-2">Stainless Steel</td>
+          </tr>
+          <tr>
+            <td>Watch movement type:</td>
+            <td class="p-2">Mechanical (self-winding + hand winding)</td>
+          </tr>
+          <tr>
+            <td>Case thikness:</td>
+            <td class="p-2">13.5</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock 'main' %}
+
+

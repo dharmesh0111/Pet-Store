@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{%block 'main' %}
+<div class="container-fluid">
+<h1 class="bg-info text-center text-white  ">Delivery Address</h1>
+<form action="">
+<table class="table container" border="2px solid black ">
+    <tbody>
+      <tr>
+        
+        <th scope="row">Country/Region</th>
+        <td><div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown button
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">India</a></li>
+              <li><a class="dropdown-item" href="#">Usa</a></li>
+              <li><a class="dropdown-item" href="#">Canada</a></li>
+              <li><a class="dropdown-item" href="#">United Kingdom</a></li>
+              <li><a class="dropdown-item" href="#">Japan</a></li>
+
+
+            </ul>
+          </div></td>
+      </tr>
+      <tr>
+      <th scope="row">Full name (Fist and last name)</th>   
+        <td><input type="text"></td>
+    </tr>
+ 
+      <tr>
+        <th scope="row">Mobile number</th>
+        <td><input type="text"></td>
+      </tr>
+
+      <tr>
+        <th scope="row">Pincode</th>
+        <td><input type="text" placeholder="6 digit [0-9] PIN code"></td>
+      </tr>
+
+      <tr>
+        <th scope="row">Flat, House no., Building, Company, Apartment</th>
+        <td><input type="text"></td>
+      </tr>
+
+      <tr>
+        <th scope="row">Area, Street, Sector, Village</th>
+        <td><input type="text"></td>
+      </tr>
+
+      <tr>
+        <th scope="row">Landmark</th>
+        <td><input type="text" placeholder="E.g. near apollo hospital"></td>
+      </tr>
+
+      <tr>
+        <th scope="row">Town/City</th>
+        <td><input type=""></td>
+      </tr>
+
+      <tr>
+        <th scope="row">State</th>
+        <td><div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown button
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </div></td>
+      </tr>
+    </tbody>
+  </table>
+</form>
+<a href="/makepayment">Payment</a>
+
+{%endblock 'main' %}

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{%block 'main' %}
+
+<main class=" container col-md-9 ">
+    <form class="col-md-8 mx-auto mt-5 shadow-lg p-3 mb-5 bg-body-tertiary rounded bg-white" style="width: 600px;" action="/register" method="post"> {% csrf_token %}
+        <h2>Registration</h2>
+        {% if error %}
+        <div class="alert alert-danger">{{ error }}</div> <br>
+        {% endif %}
+        <div class="mb-3 mt-3">
+            <label for="username" class="form-label">Username:</label>
+            <input type="text" class="form-control" id="username" name="username" aria-describedby="usernameHelp" required>
+            <div id="usernameHelp" class="form-text"></div>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email:</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password:</label>
+            <input type="password" class="form-control" id="password" name="password" required>
+        </div>
+        <div class="mb-3">
+            <label for="confirmPassword" class="form-label">Confirm password:</label>
+            <input type="password" class="form-control" id="confirmPassword" name="cpassword" required>
+        </div>
+        <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="checkMe">
+            <label class="form-check-label" for="checkMe">Check me out</label>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Register</button>
+        <br><br>
+        Already a user?<a href="/login"> Sign In</a>
+    </form>
+</main>
+
+{% endblock 'main' %}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{%block 'main' %}
+{% for message in messages %}
+<div class="alert alert-{{message.tags}}">
+ {{message}}
+</div>
+{% endfor %}
+<div class="row">
+    <!-- Product Card -->
+     {% for pet in pets%}
+    <div class="col-md-4 " style="height: 600px;">
+        <div class="card">
+            <img src="{{ pet.petimage.url }}" class="card-img-top" alt="Product Image">
+            <div class="card-body">
+                <h5 class="card-title">{{pet.breed}}  ({{pet.type}})</h5>
+                Gender : {{pet.gender}}
+                <p class="card-text">{{pet.description}}</p>
+                <strong>₹{{pet.price}}</strong><br>
+                <a href="/details/{{ pet.id}}" class="btn btn-primary mt-2" style="border: 1px solid black;">View Details</a>
+                <a href="/addtocart/{{pet.id}}" class="btn btn-warning mt-2" style="border: 1px solid black;">Add to Cart</a>
+            </div>
+        </div>
+    </div>   
+    {% endfor %} 
+    
+    <!-- Repeat Product Card as needed -->
+    <!-- ... -->
+</div>
+</main>
+</div>
+{% endblock 'main' %}

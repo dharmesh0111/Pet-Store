@@ -1,0 +1,32 @@
+    <!-- Sidebar -->
+    <aside class="col-md-3 bg-light p-3 border">
+        <h5 class="mb-3">Filter By Category</h5>
+        <ul class="list-unstyled">
+            <li><a href="/" class="d-block py-1">all pets</a></li>
+            <li><a href="/search/dog" class="d-block py-1">Dogs</a></li>
+            <li><a href="/search/cat" class="d-block py-1">Cats</a></li>
+            <li><a href="/search/rabit" class="d-block py-1">Rabit</a></li>
+            <li><a href="/search/bird" class="d-block py-1">Parrot</a></li>
+        </ul>
+        <hr>
+        
+        <h5 class="mb-3">Filter By Price</h5>
+        <form id="filterForm" action="/range">
+            <div class="mb-3">
+                <label for="minValue" class="form-label">Minimum Value</label>
+                <input type="number" class="form-control" name="min" id="minValue" placeholder="Enter minimum value">
+            </div>
+            <div class="mb-3">
+                <label for="maxValue" class="form-label">Maximum Value</label>
+                <input type="number" class="form-control" name="max" id="maxValue" placeholder="Enter maximum value">
+            </div>
+            <button type="submit" class="btn btn-danger">Apply Filter</button>
+        </form>
+        <hr>
+
+        <h5 class="mb-3">Sort By Price</h5>
+        <ul class="list-unstyled">
+            <li><a href="/sort/asc" class="d-block py-1">Low to High</a></li>
+            <li><a href="/sort/desc" class="d-block py-1">High to Low</a></li>
+        </ul>
+    </aside>

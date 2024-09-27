@@ -1,0 +1,10 @@
+
+{% include 'header.html' %}   
+<div class="row my-4"> 
+{% include 'sidebar.html' %}
+<main class="col-md-9"> 
+ {% block 'main' %}
+ {% endblock 'main' %}
+</main>
+</div>
+{% include 'footer.html' %}

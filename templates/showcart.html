@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{%block 'main' %}
+<main class="col-md-12">
+    <div class="row">
+    <div class="col-9">
+            <div class="col-12">
+              <h3 class="bg-info text-white p-2 rounded">Product Listings</h3>
+              <div class="row g-3">
+        {% for c in cart %}
+                <!-- Product 1 -->
+                <div class="pet col-12 mb-3">
+                  <div class="row">
+                    <div class="col-12 col-md-4">
+                      <img class="img-fluid rounded" src="{{ c.pid.petimage.url }}" alt="Watch">
+                    </div>
+                    <div class="col-12 col-md-8 p-3 border rounded bg-light">
+                        <h3>{{c.pid.name}} ({{c.pid.type}}) </h3>{{c.pid.breed}} <br> {{c.pid.gender}} Age: {{c.pid.age}} Month <br>
+                      <strong style="font-size: 30px;">₹{{c.pid.price}} <u class="text-danger"></u></strong><br />
+                    
+                      <div class="d-flex align-items-center">
+                        <a class="btn btn-warning btn-sm" href="/updatecart/0/{{ c.id }}">-</a>
+                        <input type="number" class="form-control form-control-sm mx-2" value="{{c.quantity}}" style="width: 60px;">
+                        <a class="btn btn-warning btn-sm" href="/updatecart/1/{{ c.id }}">+</a>
+                         <a class="ms-3 btn btn-warning" href="/removepet/{{c.id}}">Remove</i></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+    </div>
+    
+    
+    <div class="col-3 bg-light">
+      <h3 class="bg-danger text-white p-2 rounded text-center">Summary
+        <br>
+        <h3>Items count : {{ c }}</h3>
+        <h3>Total Amount ₹ {{ total }}</h3>
+      </h3>
+      <br>
+      <a href="/placeorder"><button class="btn btn-danger" >Proceed to Buy</button></a> 
+      <a href="/"><button class="btn btn-danger" >Go back</button></a> 
+
+
+    </div>
+  </div>
+  </main>
+{% endblock 'main' %}
